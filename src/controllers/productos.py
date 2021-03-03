@@ -20,9 +20,12 @@ def crear_producto():
         return render_template('productos/crear.html')
 
     nombre = request.form.get('nombre')
+    descripcion = request.form.get('descripcion')
+    precio_compra = request.form.get('precio_compra')
+    precio_venta = request.form.get('precio_venta')
     productosModel = ProductosModel()
 
-    productosModel.crear(nombre)
+    productosModel.crear(nombre,descripcion,precio_compra,precio_venta)
     
 
     #aca es la cracion del producto
