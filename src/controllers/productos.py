@@ -23,9 +23,16 @@ def crear_producto():
     descripcion = request.form.get('descripcion')
     precio_compra = request.form.get('precio_compra')
     precio_venta = request.form.get('precio_venta')
+    estado = request.form.get('estado')
+    
+    if estado == '1':
+        estado = 'Activo'
+    else:
+        estado = 'Inactivo'
+      
     productosModel = ProductosModel()
 
-    productosModel.crear(nombre,descripcion,precio_compra,precio_venta)
+    productosModel.crear(nombre,descripcion,precio_compra,precio_venta,estado)
     
 
     #aca es la cracion del producto
