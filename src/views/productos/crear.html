@@ -58,7 +58,7 @@
         let precioVenta = parseInt(inputPrecioVenta.value)
         let precioCompra = parseInt(inputPrecioCompra.value)
 
-        let ganancia = (precioVenta -precioCompra ) / 100
+        let ganancia = ((precioVenta -precioCompra ) / precioCompra)*100
         inputGanancia.value = ganancia
     }
 
