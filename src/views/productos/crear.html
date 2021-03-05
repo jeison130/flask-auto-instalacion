@@ -25,6 +25,11 @@
     </div>
 
     <div class="mb-3">
+        <label for="ganancia">Ganancia (%)</label>
+        <input type="number" required class="form-control" id="ganancia" name="ganancia">
+    </div>
+
+    <div class="mb-3">
         <label for="estado">Estado de producto</label>
         <select class="form-select" required id="estado" name="estado">
             <option selected value="">Seleciones una opcion</option>
@@ -36,6 +41,65 @@
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 
+<script>
+    let inputPrecioCompra = document.querySelector('#precio_compra')
+    let inputPrecioVenta = document.querySelector('#precio_venta')
+    let inputGanancia= document.querySelector('#ganancia')
 
+    inputPrecioCompra.addEventListener('change', cambioPrecioCompra )
+    function cambioPrecioCompra(e){
+        console.log('cambiando precio de compra')
+    }
+
+
+    inputPrecioVenta.addEventListener('change', cambioPrecioVenta)
+    function cambioPrecioVenta(e){
+        //ganacia = (precio_venta - precio_compra)/100
+        let precioVenta = parseInt(inputPrecioVenta.value)
+        let precioCompra = parseInt(inputPrecioCompra.value)
+
+        let ganancia = (precioVenta -precioCompra ) / 100
+        inputGanancia.value = ganancia
+    }
+
+
+    inputGanancia.addEventListener('change', cambioGanancia)
+    function cambioGanancia(e){
+        let precioCompra = parseInt(inputPrecioCompra.value)
+        let ganancia = parseInt(inputGanancia.value)
+        let precioVenta = (precioCompra * ganancia/100) + precioCompra
+
+        inputPrecioVenta.value = precioVenta
+    }
+
+
+
+    
+    // comentarios de una lineas
+    /*comentario de multiples linesas*/
+    //declaracion de variables
+   // let numero = 1;
+    // declaracion de constantes
+    /*const HOST = "localhost"
+
+    function sumar (num1, num2){
+        console.log("sumando")
+        return num1 + num2
+    }
+    console.log(sumar(1,2))
+
+    // condicionales
+    if(numero > 1 && numero < 10){
+        // Si se cumple la condicion
+    }else if (numero < 0 || numero > -2){
+        // Si se cumple el else if
+    }else {
+        // Si no se cumple ninguna condicion
+    }
+
+
+    console.log("hola desde javaescrip")*/
+</script>
 
 {% endblock%}
+
