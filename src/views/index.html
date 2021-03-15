@@ -1,3 +1,5 @@
 {% extends 'layouts/base.html' %} {% block titulo %} Inicio {% endblock %} {% block contenido %}
 <h1>Saludos desde una templates desde flask</h1>
+
+<a href="{{ url_for('productos') }}">Productos</a>
 {% endblock %}

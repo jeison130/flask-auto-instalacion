@@ -1,9 +1,9 @@
-from src.config.db import DB
+import src.config.globals as globals
 
 
 class ProductosModel():
     def traerTodos(self):
-        cursor = DB.cursor()
+        cursor = globals.DB.cursor()
 
         cursor.execute('select * from productos ')
 
@@ -14,8 +14,8 @@ class ProductosModel():
         return productos
 
     def crear(self, nombre,descripcion,precio_compra, precio_venta,estado):
-        cursor = DB.cursor()
-
+        cursor = globals.DB.cursor()
+        
         cursor.execute('insert into productos(nombre,descripcion,precio_compra,precio_venta,estado) values(?,?,?,?,?)', (nombre,descripcion,precio_compra,precio_venta,estado))
         
         cursor.close()
